@@ -1,6 +1,6 @@
 # Dashboard Interativo de Criptoativos — Documentação Completa
 
-Este repositório contém uma aplicação web que apresenta um painel (dashboard) interativo para exploração de dados de criptoativos. O objectivo é permitir a comparação rápida de indicadores temporais entre moedas, personalização da disposição dos cartões e uma experiência responsiva e robusta face a limites da API.
+Este repositório contém uma aplicação web que apresenta uma dashboard interativa de forma a explorar dados de criptomoedas. O objectivo é permitir a comparação rápida de indicadores temporais entre moedas, personalização da disposição dos cartões e uma experiência responsiva e robusta face a limites da API.
 
 Este ficheiro reúne toda a informação relevante sobre o que a aplicação faz, como a executar, como funciona internamente e sugestões para evoluções futuras.
 
@@ -28,8 +28,6 @@ Os KPIs implementados são:
 | Distribuição de preços | Histograma | Frequência de preços em 10 faixas | ❌ Não |
 | Dias subida vs descida | Donut (`pie`/`donut`) | Proporção de dias em alta vs baixa | ❌ Não |
 | Comparação normalizada (%) | Linha (`line`) | Normaliza 2+ moedas a 100% para comparar performance | ✅ Sim |
-
-> Nota: A opção "Máximo" foi removida dos períodos por decisão de consistência e disponibilidade de dados.
 
 ## Fonte de dados e comunicação com a API
 
@@ -73,7 +71,7 @@ Principais ficheiros e papéis:
 
 - `index.html` — estrutura base da página.
 - `src/main.js` — bootstrap do Svelte.
-- `src/App.svelte` — lógica principal (estado, API, D3, drag-drop). Atualmente monolítico (~1400 linhas).
+- `src/App.svelte` — lógica principal (estado, API, D3, drag-drop).
 - `src/styles.css` — estilos e layout.
 - `package.json` — dependências: `svelte`, `vite`, `d3`, `sortablejs`, etc.
 
@@ -96,10 +94,6 @@ Requisitos: Node.js e npm (para ambiente de desenvolvimento com Vite). Para serv
 
 Instalar dependências e correr em modo dev:
 
-
-
-Ou servir os ficheiros estáticos com `python -m http.server` a partir da pasta `dist`.
-
 ## Como testar funcionalmente (checklist rápido)
 
 1. Arrastar um KPI para o painel e confirmar que o gráfico aparece.
@@ -110,7 +104,6 @@ Ou servir os ficheiros estáticos com `python -m http.server` a partir da pasta 
 
 ## Limitações conhecidas
 
-- API CoinCap não fornece volume histórico, por isso os KPIs relacionados com volume foram removidos ou redesenhados.
 - `src/App.svelte` está grande; leitura e manutenção são mais difíceis que num design componentizado.
 - O projecto assume um token Bearer para CoinCap; a gestão segura desse token não está implementada (por ex., backend middleware).
 
